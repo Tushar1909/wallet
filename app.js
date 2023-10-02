@@ -10,6 +10,10 @@ admin.initializeApp({
 
 const db=admin.firestore();
 
+app.get("/",(req,res)=>{
+    res.send("Hi");
+})
+
 app.get("/:userid/:orderid/update",async (req,res)=>{
     
     await db.collection("orders").doc(req.params.orderid).update({
@@ -28,7 +32,6 @@ app.get("/:userid/:orderid/update",async (req,res)=>{
     })
 })
 
-const url=`http://179.61.188.225:5000/${fou[i].userid}/${fou[i].orderid}/${fou[i].price}/${fou[i].bet}/${fou[i].final}/${fou[i].token_price}/ind`
 app.get("/:userid/:orderid/:/price/:bet/:final/:token/ind",async (req,res)=>{
     
     const wall=req.params.final+((Number(req.params.price)*Number(req.params.token_price)*Number(req.params.bet*1750))/10000000)
