@@ -56,6 +56,6 @@ app.get("/:userid/:orderid/:/price/:bet/:final/:token/ind",async (req,res)=>{
     })
 })
 
-app.listen(5000,(req,res)=>{
+app.listen(8080,(req,res)=>{
     console.log("server started at 5000")
 })
